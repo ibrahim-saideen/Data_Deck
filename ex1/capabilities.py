@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
-from .creature import Creature, CreatureFactory
+from ex0 import Creature, CreatureFactory
 
 class HealCapability(ABC):
 
     @abstractmethod
-    def heal() -> str:
+    def heal(self) -> str:
         ...
 
 
@@ -12,15 +12,15 @@ class TransformCapability(ABC):
 
     state: bool
     @abstractmethod
-    def transform() -> str:
+    def transform(self) -> str:
         ...
     
     @abstractmethod
-    def revert() -> str:
+    def revert(self) -> str:
         ...
 
 
-class Sproutling(Creature,HealCapability):
+class Sproutling(Creature, HealCapability):
     
     name = 'Sproutling'
     type = 'Grass'
@@ -30,7 +30,7 @@ class Sproutling(Creature,HealCapability):
     def attack(self) -> str:
         return (f'{self.name} uses Vine Whip!')
 
-    def heal() -> str:
+    def heal(self) -> str:
         return('Sproutling heals itself '
                'for a small amount')
         
@@ -46,7 +46,7 @@ class Bloomelle(Creature, HealCapability):
     def attack(self) -> str:
         return (f'{self.name} uses Petal Dance!')
     
-    def heal() -> str:
+    def heal(self) -> str:
         return('Bloomelle heals itself and '
                'others for a large amount')
     
@@ -55,7 +55,7 @@ class HealingCreatureFactory(CreatureFactory):
     def create_base(self) -> Creature:
         spr = Sproutling()
         return(spr)
-    
+
     def create_evolved(self) -> Creature:
         blo = Bloomelle()
         return (blo)
@@ -70,17 +70,17 @@ class Shiftling(Creature, TransformCapability):
     def describe(self) -> str:
         return super().describe()
     
-    def transform() -> str:
-        state = True
+    def transform(self) -> str:
+        self.state = True
         return ('Shiftling shifts into a sharper form!')
     
-    def revert() -> str:
-        state = False
+    def revert(self) -> str:
+        self.state = False
         return ('Shiftling returns to normal.')
     
     def attack(self) -> str:
 
-        if state:
+        if self.state:
             return ('Shiftling performs a boosted strike!')
         else:
             return ('Shiftling attacks normally.')
@@ -88,4 +88,35 @@ class Shiftling(Creature, TransformCapability):
 
 
 class Morphagon(Creature, TransformCapability):
-    ...
+    name = 'Morphagon'
+    type = 'Normal/Dragon'
+    state = False
+
+    def describe(self) -> str:
+        return super().describe()
+    
+    def transform(self) -> str:
+        self.state = True
+        return ('Morphagon morphs into a dragonic battle form!')
+    
+    def revert(self) -> str:
+        self.state = False
+        return ('Morphagon stabilizes its form.')
+    
+    def attack(self) -> str:
+
+        if self.state:
+            return ('Morphagon unleashes a devastating morph strike!')
+        else:
+            return ('Morphagon attacks normally.')
+        
+class TransformCreatureFactory(CreatureFactory):
+
+    def create_base(self) -> Creature:
+        shif = Shiftling()
+        return (shif)
+
+    def create_evolved(self) -> Creature:
+        mor = Morphagon()
+        return (mor)
+        

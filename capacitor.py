@@ -1,24 +1,21 @@
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
-from ex0 import creature
+from ex0 import Creature
 
-def creat_heal_creature(healing: creature) -> None:
-    
+
+def creat_heal_creature(healing: Creature) -> None:
+
     print(healing.describe())
     print(healing.attack())
     print(healing.heal())
-    
 
-def creat_trans_creature(trans: creature) -> None:
-    
+
+def creat_trans_creature(trans: Creature) -> None:
+
     print(trans.describe())
     print(trans.attack())
     print(trans.transform())
     print(trans.attack())
     print(trans.revert())
-
-
-
-
 
 
 def main() -> None:
@@ -36,9 +33,6 @@ def main() -> None:
     creat_trans_creature(base_trans)
     print('evolved:')
     creat_trans_creature(evolv_trans)
-
-
-
 
 
 if __name__ == '__main__':

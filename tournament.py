@@ -10,9 +10,9 @@ def battle(lst:list[tuple]) -> None:
 
 
 def main() -> None:
-    
-    print('Tournament 0 (basic)')
 
+    print('Tournament 0 (basic)')
+    
 
 
 if __name__ == '__main__':

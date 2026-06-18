@@ -14,6 +14,9 @@ class BattleStrategy(ABC):
 
 class NormalStrategy(BattleStrategy):
 
+    def __str__(self) -> str:
+        return ('Normal')
+
     def is_valid(self, c: Creature) -> bool:
         if 'attack' in c.__dict__:
             return (True)
@@ -25,6 +28,9 @@ class NormalStrategy(BattleStrategy):
 
 
 class AggressiveStrategy(BattleStrategy):
+
+    def __str__(self) ->str:
+        return ('Aggressive')
 
     def is_valid(self, c: Creature) -> bool:
         if 'transform' and 'revert' in c.__dict__:
@@ -42,6 +48,9 @@ class AggressiveStrategy(BattleStrategy):
             print(e)
 
 class DefensiveStrategy(BattleStrategy):
+
+    def __str__(self) -> str:
+        return (str)
 
     def is_valid(self, c:Creature) -> bool:
         if 'heal' in c.__dict__:

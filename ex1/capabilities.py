@@ -24,6 +24,9 @@ class TransformCapability(ABC):
 
 class Sproutling(Creature, HealCapability,):
 
+    def __str__(self) -> str:
+        return ('Sproutling')
+
     name = 'Sproutling'
     type = 'Grass'
 
@@ -39,6 +42,9 @@ class Sproutling(Creature, HealCapability,):
 
 
 class Bloomelle(Creature, HealCapability):
+
+    def __str__(self) -> str:
+        return ('Bloomelle')
 
     name = 'Bloomelle'
     type = 'Grass/Fairy'
@@ -67,6 +73,9 @@ class HealingCreatureFactory(CreatureFactory):
 
 class Shiftling(Creature, TransformCapability):
 
+    def __str__(self) -> str:
+        return ('Shiftling')
+
     name = 'Shiftling'
     type = 'Normal'
     state = False
@@ -91,6 +100,10 @@ class Shiftling(Creature, TransformCapability):
 
 
 class Morphagon(Creature, TransformCapability):
+
+    def __str__(self) -> str:
+        return ('Morphagon')
+
     name = 'Morphagon'
     type = 'Normal/Dragon'
     state = False

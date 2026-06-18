@@ -27,14 +27,19 @@ class CreatureFactory(ABC):
 
 class Flameling(Creature):
 
+    def __str__(self) -> str:
+        return ('Flameling')
+
     name = 'Flameling'
     type = 'Fire'
-
     def attack(self) -> str:
         return (f'{self.name} uses Ember!')
 
 
 class Pyrodon(Creature):
+
+    def __str__(self) -> str:
+        return ('Pyrodon')
 
     name = 'Pyrodon'
     type = 'Fire/Flying'
@@ -45,6 +50,9 @@ class Pyrodon(Creature):
 
 class Aquabub(Creature):
 
+    def __str__(self) -> str:
+        return ('Aquabub')
+
     name = 'Aquabub'
     type = 'Water'
 
@@ -53,6 +61,9 @@ class Aquabub(Creature):
 
 
 class Torragon(Creature):
+
+    def __str__(self) -> str:
+        return ('Torragon')
 
     name = 'Torragon'
     type = 'Water'

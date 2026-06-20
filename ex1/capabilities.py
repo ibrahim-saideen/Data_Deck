@@ -25,7 +25,7 @@ class TransformCapability(ABC):
 class Sproutling(Creature, HealCapability,):
 
     def __str__(self) -> str:
-        return ('Sproutling')
+        return ('Healing')
 
     name = 'Sproutling'
     type = 'Grass'

@@ -44,13 +44,15 @@ class AggressiveStrategy(BattleStrategy):
             print(c.transform())
             print(c.attack())
             print(c.revert())
-        except Exception as e:
-            print(e)
+        except Exception:
+            print('Battle error, aborting tournament: '
+                  'Invalid Creature ’Flameling’ for this '
+                  'aggressive strategy')
 
 class DefensiveStrategy(BattleStrategy):
 
     def __str__(self) -> str:
-        return (str)
+        return ('Defensive')
 
     def is_valid(self, c:Creature) -> bool:
         if 'heal' in c.__dict__:

@@ -32,6 +32,7 @@ class Flameling(Creature):
 
     name = 'Flameling'
     type = 'Fire'
+
     def attack(self) -> str:
         return (f'{self.name} uses Ember!')
 

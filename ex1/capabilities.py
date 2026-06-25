@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from ex0 import Creature, CreatureFactory
+from typing import Protocol
 
 
 class HealCapability(ABC):
@@ -19,6 +20,33 @@ class TransformCapability(ABC):
 
     @abstractmethod
     def revert(self) -> str:
+        ...
+
+
+class healtype(Protocol):
+
+    def heal(self) -> str:
+        ...
+
+    def describe(self) -> str:
+        ...
+
+    def attack(self) -> str:
+        ...
+
+
+class transtype(Protocol):
+
+    def transform(self) -> str:
+        ...
+
+    def revert(self) -> str:
+        ...
+
+    def describe(self) -> str:
+        ...
+
+    def attack(self) -> str:
         ...
 
 

@@ -1,15 +1,16 @@
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
-from ex0 import Creature
+from ex1 import healtype, transtype
+from typing import cast
 
 
-def creat_heal_creature(healing: Creature) -> None:
+def creat_heal_creature(healing: healtype) -> None:
 
     print(healing.describe())
     print(healing.attack())
     print(healing.heal())
 
 
-def creat_trans_creature(trans: Creature) -> None:
+def creat_trans_creature(trans: transtype) -> None:
 
     print(trans.describe())
     print(trans.attack())
@@ -25,14 +26,22 @@ def main() -> None:
     evolv_trans = TransformCreatureFactory().create_evolved()
     print('Testing Creature with healing capability')
     print('base:')
-    creat_heal_creature(base_heal)
+    creat_heal_creature(
+        cast(healtype, base_heal)
+    )
     print('evolved:')
-    creat_heal_creature(evolv_heal)
+    creat_heal_creature(
+        cast(healtype, evolv_heal)
+    )
     print('\nTesting Creature with transform capability')
     print('base:')
-    creat_trans_creature(base_trans)
+    creat_trans_creature(
+        cast(transtype, base_trans)
+    )
     print('evolved:')
-    creat_trans_creature(evolv_trans)
+    creat_trans_creature(
+        cast(transtype, evolv_trans)
+    )
 
 
 if __name__ == '__main__':
